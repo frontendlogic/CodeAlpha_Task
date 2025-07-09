@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  background: #000000;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 
+{
+  margin-bottom: 10px;
+}
+
+.filter-btns 
+{
+  margin-bottom: 10px;
+}
+.filter-btns button 
+{
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.gallery 
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  text-decoration: underline aliceblue;
+}
+
+.img-box 
+{
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease;
+  border: 2px white;
+
+}
+.img-box img {
+
+  width: 50%;
+  height: 70%;
+  /*transition: 0.3s;*/
+  cursor: pointer;
+}
+.img-box:hover 
+{
+  transform: scale(1.10); 
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.lightbox img 
+{
+  max-width: 90%;
+  max-height: 80%;
+}
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.lightbox .nav {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.lightbox .nav span {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .filter-btns button {
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+}
+/*Dark mode-light mode*/
+.switch {
+  text-align: right;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 25px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #4a90e2;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+.icon-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.icon-label {
+  display: inline-block;
+  background: #ddd;
+  border-radius: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+</style>
+<body>
+
+  <h1>Image Gallery</h1>
+
+  <!-- Filter Buttons -->
+  <div class="filter-btns">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('nature')">Nature</button>
+    <button onclick="filterImages('city')">City</button>
+  </div>
+
+<!--Dark-Light Mode-->
+<div class="toggle-container">
+<label class="switch">
+  <input type="checkbox" id="toggleMode">
+  <span class="slider"></span>
+</label>
+</div>
+
+
+  <!-- Gallery -->
+  <div class="gallery">
+    <div class="img-box nature"><img src="Img/Img_natural_1.jpg"openLightbox(this)" /></div>
+    <div class="img-box city"><img src="Img/Img_city_1.jpg" alt="Image 2" onclick="openLightbox(this)" /></div>
+    <div class="img-box nature"><img src="Img/Img_natural_2.jpg" alt="Image 3" onclick="openLightbox(this)" /></div>
+
+    <!-- Add more with class names as categories -->
+  </div>
+  <div class="gallery">
+    <div class="img-box nature"><img src="Img/Img_natural_3.jpg" alt="Image 1" onclick="openLightbox(this)" /></div>
+    <div class="img-box city"><img src="Img/Img_city_2.jpg" alt="Image 2" onclick="openLightbox(this)" /></div>
+    <div class="img-box nature"><img src="Img/Img_natural_4.jpg" alt="Image 3" onclick="openLightbox(this)" /></div>
+    
+  </div>
+  <div class="gallery">
+    <div class="img-box nature"><img src="Img/Img_natural_5.jpg" alt="Image 1" onclick="openLightbox(this)" /></div>
+    <div class="img-box city"><img src="Img/Img_city_4.jpg" alt="Image 2" onclick="openLightbox(this)" /></div>
+    <div class="img-box nature"><img src="Img/Img_natural_6.jpg" alt="Image 3" onclick="openLightbox(this)" /></div>
+    
+  </div>
+  
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Lightbox View" />
+    <div class="nav">
+      <span onclick="prevImage()">&#10094;</span>
+      <span onclick="nextImage()">&#10095;</span>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+let images = [];
+
+function openLightbox(img) {
+  const allImages = document.querySelectorAll('.gallery img');
+  images = Array.from(allImages).filter(img => img.parentElement.style.display !== 'none');
+  currentIndex = images.indexOf(img);
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById('lightbox-img').src = images[currentIndex].src;
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById('lightbox-img').src = images[currentIndex].src;
+}
+
+
+// Filter Function
+function filterImages(category) {
+  const boxes = document.querySelectorAll('.img-box');
+  boxes.forEach(box => {
+    if (category === 'all' || box.classList.contains(category)) {
+      box.style.display = 'block';
+    } else {
+      box.style.display = 'none';
+    }
+  });
+}
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+
+const toggle = document.getElementById("toggleMode");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+
+  </script>
+</body>
+</html>

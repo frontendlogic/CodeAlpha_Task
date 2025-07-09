@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payal's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: aliceblue;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f9d342;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects, .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .project-card {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .circle-skill {
+      text-align: center;
+    }
+    .outer {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(#e44d26 0% 90%, #ddd 90% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .outer.css {
+      background: conic-gradient(#264de4 0% 85%, #ddd 85% 100%);
+    }
+    .outer.js {
+      background: conic-gradient(#f0db4f 0% 70%, #ddd 70% 100%);
+    }
+    .outer.python{
+      background:conic-gradient(#0b04e7 0% 70%, #ddd 70% 100%);
+    }
+    .inner {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .number {
+      font-weight: bold;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .typing::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+    
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+   <div class="about_img"><img src="Avatar male.jpg" style="width: 150px;height: 150px;
+      object-fit: cover;border-radius: 50%;border: 3px solid #333; "/></div>
+    <h2>About Me</h2>
+    <h2>Hello! I'm <span class="typing"></span></h2><p>I am Payal, an MCA student and aspiring web developer with a passion for designing responsive and user-friendly websites. I am continuously expanding my skills in HTML, CSS, JavaScript, Python, and C, and I enjoy applying my creativity and technical knowledge to real-world projects. I am committed to personal growth, learning, and building a strong foundation for a successful career in technology.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Image Gallery</h3>
+        <center><a href="file:///C:/Users/LENOVO%20X1/OneDrive/Desktop/Codealpha/image-gallery/index.html"><img src="iPHONE PHOTOS ~ Using the Album _People_ to Make Videos ~ A _HOW TO_ Post - GoodGrandma _ Logo de apple, Galerías, Tatuajes de jirafa.jpg" style="width: 50px; height:50px;"/></a></center>
+        <p>A responsive image gallery with filters, hover effects, and lightbox view using HTML,CSS, and JS.</p>
+        
+      </div>
+      <div class="project-card">
+        <h3>Calculator</h3>
+        <center><a href="file:///C:/Users/LENOVO%20X1/OneDrive/Desktop/Codealpha/calculater/index.html"><img src="Calculator.gif" style="width:98px; height: 98px;"/></a></center>
+        <p>A basic calculator with keyboard support, real-time result display, and custom styling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="circle-skill">
+        <img src="HTML5 logo PNG.jpg" style="height: 50px;width: 50px;background-color: aliceblue;"/>
+        <div class="outer"><div class="inner"><div class="number">90%</div></div></div>
+        <p>HTML</p>
+      </div>
+      <div class="circle-skill">
+        <img src="CSS3 Logo PNG vector in SVG, PDF, AI, CDR format.jpg" style="height:50px;width:70px;background-color: aliceblue;"/>
+        <div class="outer css"><div class="inner"><div class="number">85%</div></div></div>
+        <p>CSS</p>
+      </div>
+      <div class="circle-skill">
+        <img src="Learn to Code - Become Better Developers Together.jpg" style="height: 50px;width:70px;background-color: aliceblue"/>
+        <div class="outer js"><div class="inner"><div class="number">70%</div></div></div>
+        <p>JavaScript</p>
+      </div>
+      <div class="circle-skill">
+        <img src="python logo.jpg" style="height: 50px;width:50px;"/>
+        <div class="outer python"><div class="inner"><div class="number">60%</div></div></div>
+        <p>Python</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: payal@gmail.com</p>
+    <p><a href="resume.pdf" download>Download Resume</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Payal Thanki</p>
+  </footer>
+
+
+  <script>
+
+    const words = ["a Web Developer", "a Python Programmer", "a Tech Explorer"];
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+    const element = document.querySelector(".typing");
+
+  function typeEffect() {
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+  element.textContent = currentWord.slice(0, charIndex);
+  if (!isDeleting && charIndex === currentWord.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1000);
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+  }
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+typeEffect();
+</script>
+
+</body>
+</html>
